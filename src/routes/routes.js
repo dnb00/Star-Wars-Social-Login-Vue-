@@ -4,17 +4,18 @@ import { createWebHistory, createRouter } from "vue-router";
 // import SignUp from "@/views/SignUp";
 import Home from "@/views/Home";
 import Details from "@/views/Details";
+import Login from "@/views/Login";
 
 let routes = [
   {
     path: "/",
-    redirect: "/home",
+    redirect: "/login",
   },
-  // {
-  //   path: "/login",
-  //   name: "Login",
-  //   component: Login,
-  // },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
   // {
   //   path: "/signup",
   //   name: "SignUp",
