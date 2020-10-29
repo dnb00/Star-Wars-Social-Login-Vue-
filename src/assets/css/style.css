@@ -1,0 +1,32 @@
+body {
+  background-image: url("../star-wars-backgrounds-25.jpg");
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  color: yellow;
+  justify-content: center;
+}
+.spacing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card-content {
+  padding: 1.4em;
+}
+.card {
+  border: 1px solid white;
+  border-radius: 10px;
+  flex: 0 1 calc(25% - 1em);
+  margin: 1rem 0.5em;
+}
+.card:hover {
+  border: 1px solid red;
+  cursor: pointer;
+}
