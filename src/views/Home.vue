@@ -1,7 +1,8 @@
 <template>
   <div>
+    <NavBar />
     <div class="main-container">
-      <div class="loginsuccess-container">
+
         <h2 class="heading" style="color:yellow">
           <svg xmlns="http://www.w3.org/2000/svg" width="193.338" height="82.739" viewBox="0 0 193.338 82.739">
   <g id="Layer_2" transform="translate(-29.908 -73.916)" opacity="0.5">
@@ -41,14 +42,15 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
-
+import NavBar from '@/components/NavBar';
 import axios from 'axios';
 import logo from '../assets/logo.svg';
 import router from "../routes/routes";
+import UserService from "@/services/userService";
+const userService = new UserService();
 
 export default {
   data(){
@@ -62,19 +64,37 @@ export default {
   methods: {
     showDetails(filme){
      router.push({name: 'Details',params: {details:JSON.stringify(filme)}})
+    },
+    getFacebokUserInfo(){
+      let token = localStorage.getItem('facebookToken');
+      if(token){
+        // eslint-disable-next-line no-undef
+        FB.api(`/me`,'GET',{"fields":'id,name,picture'},function(response){
+          localStorage.setItem('loginUser',JSON.stringify(response));
+          userService.saveUser({
+            userId:response.id,
+            userName:response.name,
+            picture: response.picture.data.url,
+            loginType: 'facebook'
+          })
+        })
+      }
     }
   },
-  created(){
+  mounted(){
+  this.getFacebokUserInfo();
    axios
       .get("http://localhost:5000/api/swapi")
       .then((res) => {
-        console.log(res);
         this.filmes = res.data.data.results
         this.loading = false;
       })
       .catch((e) => {
         console.log(e);
       });
+  },
+  components:{
+    NavBar
   }
 }
 </script>

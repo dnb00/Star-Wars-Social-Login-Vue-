@@ -1,30 +1,16 @@
-/**
- * Set localStorage
- */
-export const setStore = (name, content) => {
-  if (!name) return
-  if (typeof content !== 'string') {
-    content = JSON.stringify(content)
+const logOut = (loginType) => {
+  if (loginType === "google") {
+    // eslint-disable-next-line no-undef
+    let auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      localStorage.removeItem("googleToken");
+      localStorage.removeItem("loginUser");
+      console.log("Deslogou");
+    });
+    return;
+  } else {
+    return;
   }
-  return window.localStorage.setItem(name, content)
-}
-/**
-  * Get localStorage
-*/
-export const getStore = (name) => {
-  if (!name) return
-  return JSON.parse(window.localStorage.getItem(name))
-}
-/**
- * Clear localStorage
-*/
-export const removeItem = (name) => {
-  if (!name) return
-  return window.localStorage.removeItem(name)
-}
-/**
- * Validate Email address
- */
-export const isValidEmail = (value) => {
-  return value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,64}$/i.test(value) ? false : true
-}
+};
+
+export default logOut;
