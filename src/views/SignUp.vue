@@ -1,42 +1,48 @@
 <template>
   <div class="content">
-    <img src="../assets/starwars_logo.png" class="logo-amarelo"/>
+    <img src="../assets/starwars_logo.png" class="logo-amarelo" />
     <div class="main-container">
-    <form>
-      <div class="box-container">
-        <h2 class="heading">Sign Up</h2>
-        <div class="form-fields">
-          <input id="email" name="email" type="text" placeholder="Email Address">
+      <form>
+        <div class="box-container">
+          <h2 class="heading">Sign Up</h2>
+          <div class="form-fields">
+            <input
+              id="email"
+              name="email"
+              type="text"
+              placeholder="Email Address"
+            />
+          </div>
+          <div class="form-fields">
+            <input
+              id="password"
+              name="password"
+              type="text"
+              placeholder="Password"
+            />
+          </div>
+          <div class="form-fields">
+            <button class="signIn" name="commit" type="submit">Sign In</button>
+          </div>
+          <div class="login-choice"><span>or Sign In with</span></div>
+          <SocialLogin />
         </div>
-        <div class="form-fields">
-          <input id="password" name="password" type="text" placeholder="Password">
-        </div>
-        <div class="form-fields">
-          <button class="signIn" name="commit" type="submit">
-            Sign In
-          </button>
-        </div>
-        <div class="login-choice"><span>or Sign In with</span></div>
-        <SocialLogin />
+      </form>
+      <div class="footer">
+        <p>Don't have an account? <a href="/signup"> Create one now</a></p>
       </div>
-    </form>
-    <div class="footer">
-       <p>Don't have an account? <a href="/signup"> Create one now</a></p>
     </div>
-  </div>
   </div>
 </template>
 
 <script>
-import SocialLogin from '@/components/SocialLogin';
+import SocialLogin from "@/components/SocialLogin";
 
 export default {
-  components:{
-    SocialLogin
-  }
-}
+  components: {
+    SocialLogin,
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
