@@ -1,0 +1,37 @@
+.field {
+  display: flex;
+  width: 330px;
+  justify-content: space-around;
+  margin: 5rem;
+}
+.sns-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: none;
+  transition-duration: 0.5s;
+  transform: rotateX(45deg);
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.sns-btn--google {
+  background-color: #db4a39;
+}
+.sns-btn--facebook {
+  background-color: #3b5998;
+}
+.sns-btn--instagram {
+  background-color: #dd2b75;
+}
+.sns-btn:hover {
+  transform: scale(1.2);
+  box-shadow: none;
+}
+.sns-btn__icon {
+  font-size: 33px;
+  letter-spacing: 0.1em;
+  color: #fff;
+}

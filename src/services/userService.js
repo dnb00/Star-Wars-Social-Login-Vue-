@@ -5,8 +5,9 @@ const url = "http://localhost:5000/api/users";
 
 export default class UserService {
   // Get Users
-  getUsers() {
-    return axios.post(url);
+  async getUsers() {
+    const res = await axios.get(url + "/");
+    return res.data;
   }
   //Create User
   async saveUser(user) {
@@ -16,7 +17,7 @@ export default class UserService {
         router.push("/home");
       })
       .catch((e) => {
-        console.log(e);
+        throw e;
       });
   }
 }

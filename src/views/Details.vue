@@ -1,6 +1,7 @@
 <template>
-  <div class="content" :class="loading ? 'text-center' : ''">
+<Menu />
     <img src="../assets/starwars_logo.png" class="logo-amarelo" />
+  <div class="content" :class="loading ? 'text-center' : ''">
     <div class="lds-ring" v-if="loading">
       <div></div>
       <div></div>
@@ -30,6 +31,7 @@
 
 <script>
 import axios from "axios";
+import Menu from "@/components/Menu";
 
 export default {
   data() {
@@ -39,21 +41,25 @@ export default {
       loading: true,
     };
   },
-  created() {
+  mounted() {
     this.filme = JSON.parse(this.$route.params.details);
+    const user = JSON.parse(localStorage.getItem('loginUser'));
     axios
       .post("http://localhost:5000/api/swapi/personagens", {
+        user: user,
         personagens: this.filme.characters,
       })
       .then((res) => {
         this.personagens = res.data.personagens;
-        console.log(res.data.personagens);
         this.loading = false;
       })
       .catch((e) => {
         throw e;
       });
   },
+  components: {
+    Menu
+  }
 };
 </script>
 

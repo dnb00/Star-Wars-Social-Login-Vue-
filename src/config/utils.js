@@ -5,7 +5,6 @@ const logOut = (loginType) => {
     auth2.signOut().then(function () {
       localStorage.removeItem("googleToken");
       localStorage.removeItem("loginUser");
-      console.log("Deslogou");
     });
     return;
   } else {

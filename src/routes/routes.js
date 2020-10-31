@@ -5,7 +5,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "@/views/Home";
 import Details from "@/views/Details";
 import Login from "@/views/Login";
-import SignUp from "@/views/SignUp";
+import List from "@/views/List";
 
 let routes = [
   {
@@ -18,11 +18,6 @@ let routes = [
     component: Login,
   },
   {
-    path: "/signup",
-    name: "SignUp",
-    component: SignUp,
-  },
-  {
     path: "/home",
     name: "Home",
     component: Home,
@@ -32,6 +27,11 @@ let routes = [
     name: "Details",
     component: Details,
   },
+  {
+    path: "/list",
+    name: "List",
+    component: List,
+  },
 ];
 
 const router = createRouter({
@@ -39,14 +39,13 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  console.log("fudeu");
-  // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = ["/login", "/signup"];
-  const authRequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem("loginUser");
+const isAuthenticated = localStorage.getItem("loginUser");
 
-  if (authRequired && !loggedIn) {
+router.beforeEach((to, from, next) => {
+  const publicPage = "/login";
+  const authRequired = !publicPage.includes(to.path);
+
+  if (authRequired && !isAuthenticated) {
     return next("/login");
   }
 
