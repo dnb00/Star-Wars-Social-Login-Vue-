@@ -159,10 +159,10 @@ span {
   border-radius: 10px;
   flex: 0 1 calc(25% - 1em);
   margin: 1rem;
+  cursor: pointer;
 }
 .card:hover {
   border: 1px solid red;
-  cursor: pointer;
 }
 .falcon {
   width: 18px;

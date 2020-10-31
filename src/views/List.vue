@@ -3,7 +3,7 @@
   <img src="../assets/starwars_logo.png" class="logo-amarelo" />
   <div class="content">
     <div class="main-container flex-user-card">
-      <div class="card white" v-for="user of users" v-bind:key="user._id">
+      <div class="card white" style="cursor:initial" v-for="user of users" v-bind:key="user._id">
         <div class="card-content">
           <img class="rounded3" :src="user.picture" />
           <h1>{{ user.userName }}</h1>

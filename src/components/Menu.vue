@@ -20,7 +20,7 @@
                 >
                   <ul class="dropdown__menu-nav">
                     <li class="dropdown__menu-item">
-                      <a href="#" class="dropdown__menu-link" title="Privacy">
+                      <a href="#" class="dropdown__menu-link" style="cursor:initial" title="Privacy">
                         <div>
                           <img class="rounded2" :src="user.picture" />
                           <div class="dropdown__menu-text">
