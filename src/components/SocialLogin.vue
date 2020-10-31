@@ -1,14 +1,16 @@
 <template>
-
-    <div class="field">
-	<a class="sns-btn sns-btn--google" id="googleSignIn" @click.prevent="loginWithGoogle">
-		<i class="sns-btn__icon fab fa-google"></i>
-	</a>	
-	<a class="sns-btn sns-btn--facebook" @click.prevent="loginWithFacebook" >
-		<i class="sns-btn__icon fab fa-facebook-f"></i>
-	</a>
-</div>
-  
+  <div class="field">
+    <a
+      class="sns-btn sns-btn--google"
+      id="googleSignIn"
+      @click.prevent="loginWithGoogle"
+    >
+      <i class="sns-btn__icon fab fa-google"></i>
+    </a>
+    <a class="sns-btn sns-btn--facebook" @click.prevent="loginWithFacebook">
+      <i class="sns-btn__icon fab fa-facebook-f"></i>
+    </a>
+  </div>
 </template>
 
 <script>
@@ -20,25 +22,29 @@ export default {
   name: "SocialLogin",
   mounted() {
     initFbsdk();
-    gapi.load('auth2',function(){
+    gapi.load("auth2", function () {
       let auth2 = gapi.auth2.init();
-      let element = document.getElementById('googleSignIn')
-      auth2.attachClickHandler(element,{},(googleUser)=>{
-         localStorage.setItem("googleToken", googleUser.Ca);
-      let user = {
-        userId: googleUser.Ca,
-        userName: googleUser.tt.Ad,
-        picture: googleUser.tt.dK,
-        email: googleUser.tt.$t,
-        loginType: "google",
-      };
-      localStorage.setItem("loginUser", JSON.stringify(user));
-      userService.saveUser(user);
-      },(err)=>{
-        console.log(err);
-      })
-
-    })
+      let element = document.getElementById("googleSignIn");
+      auth2.attachClickHandler(
+        element,
+        {},
+        (googleUser) => {
+          localStorage.setItem("googleToken", googleUser.Ca);
+          let user = {
+            userId: googleUser.Ca,
+            userName: googleUser.tt.Ad,
+            picture: googleUser.tt.dK,
+            email: googleUser.tt.$t,
+            loginType: "google",
+          };
+          localStorage.setItem("loginUser", JSON.stringify(user));
+          userService.saveUser(user);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    });
   },
   methods: {
     loginWithFacebook() {

@@ -24,26 +24,22 @@
                         <div>
                           <img class="rounded2" :src="user.picture" />
                           <div class="dropdown__menu-text">
-                            {{user.userName}}
+                            {{ user.userName }}
                           </div>
                           <div class="dropdown__menu-text">
-                            {{user.email}}
+                            {{ user.email }}
                           </div>
                           <div class="dropdown__menu-text">
-                            {{user.birthday}}
+                            {{ user.birthday }}
                           </div>
                           <div class="dropdown__menu-text">
-                            {{user?.location?.name}}
+                            {{ user?.location?.name }}
                           </div>
                         </div>
                       </a>
                     </li>
                     <li class="dropdown__menu-item" @click="toUsers">
-                      <a
-                        href="#"
-                        class="dropdown__menu-link"
-                        title="List"
-                      >
+                      <a href="#" class="dropdown__menu-link" title="List">
                         <div class="dropdown__menu-svg">
                           <svg viewBox="0 0 640 512">
                             <path
@@ -69,9 +65,7 @@
                             />
                           </svg>
                         </div>
-                        <div class="dropdown__menu-text">
-                          Deslogar
-                        </div>
+                        <div class="dropdown__menu-text">Deslogar</div>
                       </a>
                     </li>
                   </ul>

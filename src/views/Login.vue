@@ -3,7 +3,7 @@
     <img src="../assets/starwars_logo.png" class="logo-amarelo" />
     <div class="main-container">
       <div class="box-container">
-          <SocialLogin />
+        <SocialLogin />
       </div>
     </div>
   </div>

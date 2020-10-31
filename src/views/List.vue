@@ -7,7 +7,7 @@
         <div class="card-content">
           <img class="rounded3" :src="user.picture" />
           <h1>{{ user.userName }}</h1>
-          <h3>{{user.email}}</h3>
+          <h3>{{ user.email }}</h3>
           <div class="flex-user-card px-10">
             <img src="@/assets/icons/icons8-clock-50.png" />
             <p>{{ user.createdAt }}</p>
@@ -21,8 +21,14 @@
             <p>{{ user?.birthday }}</p>
           </div>
           <div>
-          <img v-if="user.loginType === 'google'" src="@/assets/icons/icons8-google-50.png" />
-          <img v-if="user.loginType === 'facebook'" src="@/assets/icons/icons8-facebook-50.png" />
+            <img
+              v-if="user.loginType === 'google'"
+              src="@/assets/icons/icons8-google-50.png"
+            />
+            <img
+              v-if="user.loginType === 'facebook'"
+              src="@/assets/icons/icons8-facebook-50.png"
+            />
           </div>
         </div>
       </div>

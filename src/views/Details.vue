@@ -1,6 +1,6 @@
 <template>
-<Menu />
-    <img src="../assets/starwars_logo.png" class="logo-amarelo" />
+  <Menu />
+  <img src="../assets/starwars_logo.png" class="logo-amarelo" />
   <div class="content" :class="loading ? 'text-center' : ''">
     <div class="lds-ring" v-if="loading">
       <div></div>
@@ -43,7 +43,7 @@ export default {
   },
   mounted() {
     this.filme = JSON.parse(this.$route.params.details);
-    const user = JSON.parse(localStorage.getItem('loginUser'));
+    const user = JSON.parse(localStorage.getItem("loginUser"));
     axios
       .post("http://localhost:5000/api/swapi/personagens", {
         user: user,
@@ -58,8 +58,8 @@ export default {
       });
   },
   components: {
-    Menu
-  }
+    Menu,
+  },
 };
 </script>
 
